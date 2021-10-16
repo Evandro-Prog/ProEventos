@@ -21,7 +21,7 @@ namespace ProEventos.Controllers
                 Local = "São Paulo",
                 Lote = "1º",
                 QtdPessoas = 250,
-                DataEvanto = DateTime.Now.AddDays(2).ToString(),
+                DataEvento = DateTime.Now.AddDays(2).ToString(),
                 ImgUrl = "Foto.png"
             },
             new Evento()
@@ -31,7 +31,7 @@ namespace ProEventos.Controllers
                 Local = "Rio de Janeiro",
                 Lote = "1º",
                 QtdPessoas = 250,
-                DataEvanto = DateTime.Now.AddDays(2).ToString(),
+                DataEvento = DateTime.Now.AddDays(2).ToString(),
                 ImgUrl = "Foto.png"
             }
         };   
