@@ -27,7 +27,7 @@ namespace ProEventos.Controllers
         [HttpGet("{id}")]
         public IEnumerable<Evento> GetById(int id)
         {
-            return _context.Eventos.Where(evento => evento.EventoId == id);
+            return _context.Eventos.Where(evento => evento.Id == id);
         }
 
         [HttpPost]
