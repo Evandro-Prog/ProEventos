@@ -11,6 +11,6 @@ namespace ProEventos.Repository
         //EVENTOS
         Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool incluirPalestrantes = false);
         Task<Evento[]> GetAllEventosAsync(bool incluirPalestrantes = false);
-        Task<Evento> GetEventoByIdAsync(int EventoId, bool incluirPalestrantes = false);
+        Task<Evento> GetEventoByIdAsync(int eventoId, bool incluirPalestrantes = false);
     }
 }

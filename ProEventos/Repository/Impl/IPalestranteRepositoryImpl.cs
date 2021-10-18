@@ -24,7 +24,7 @@ namespace ProEventos.Repository.Impl
                     .ThenInclude(pe => pe.Evento);
             }
 
-            querry = querry.OrderBy(p => p.Id);
+            querry = querry.AsNoTracking().OrderBy(p => p.Id);
 
             return await querry.ToArrayAsync();
         }
@@ -36,7 +36,7 @@ namespace ProEventos.Repository.Impl
 
             if (incluirEventos)
             {
-                querry = querry.Include(p => p.PalestrantesEventos)
+                querry = querry.AsNoTracking().Include(p => p.PalestrantesEventos)
                     .ThenInclude(pe => pe.Evento);
             }
 
@@ -56,7 +56,7 @@ namespace ProEventos.Repository.Impl
                     .ThenInclude(pe => pe.Evento);
             }
 
-            querry = querry.OrderBy(p => p.Id).Where(p => p.Id == palestranteId);
+            querry = querry.AsNoTracking().OrderBy(p => p.Id).Where(p => p.Id == palestranteId);
 
             return await querry.FirstOrDefaultAsync();
         }

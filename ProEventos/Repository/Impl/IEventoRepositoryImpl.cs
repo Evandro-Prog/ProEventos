@@ -10,7 +10,7 @@ namespace ProEventos.Repository.Impl
         private readonly ProEventosContext _context;
         public IEventoRepositoryImpl(ProEventosContext context)
         {
-            _context = context;
+            _context = context;            
         }
 
         public async Task<Evento[]> GetAllEventosAsync(bool incluirPalestrantes = false)
@@ -25,7 +25,7 @@ namespace ProEventos.Repository.Impl
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            querry = querry.OrderBy(e => e.Id);
+            querry = querry.AsNoTracking().OrderBy(e => e.Id);
 
             return await querry.ToArrayAsync();
         }
@@ -42,7 +42,7 @@ namespace ProEventos.Repository.Impl
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            querry = querry.OrderBy(e => e.Id)
+            querry = querry.AsNoTracking().OrderBy(e => e.Id)
                 .Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
 
             return await querry.ToArrayAsync();
@@ -60,7 +60,7 @@ namespace ProEventos.Repository.Impl
                     .ThenInclude(pe => pe.Palestrante);
             }
 
-            querry = querry.OrderBy(e => e.Id)
+            querry = querry.AsNoTracking().OrderBy(e => e.Id)
                 .Where(e => e.Id == eventoId);
 
             return await querry.FirstOrDefaultAsync();
